@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS tương tác thông qua giá trị của thuộc tính</title>
+    <style>
+        div {
+            margin: .5rem 0;
+        }
+        input[type="text"] {
+            border: 2px solid blue;
+            padding: .5rem;
+        }
+        input[class="btn"] {
+            border: none;
+            padding: .5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        input[class="btn"][type="submit"] {
+            background-color: green;
+            color: white;
+        }
+        input[class="btn"][type="reset"] {
+            background-color: red;
+            color: white;
+        }   
+        input[class="btn"]:hover {
+            background-color: palevioletred;
+        }
+        div > label{
+            display: inline-block;
+            width: 150px;   
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS tương tác thông qua giá trị của thuộc tính</h1>
+    <form action="">
+        <div>
+            <label for="input1">Nhập tên của bạn:</label>
+            <input type="text" id="input1" name="input1">
+        </div>
+        
+       <div>
+            <label for="diachi">Địa chỉ</label>
+            <input type="text" name="diachi" id="diachi">
+       </div>
+
+       <div>
+            <label for="input2">Nhập tuổi của bạn:</label>
+            <input type="number" id="input2" name="input2"> 
+       </div>
+       <div>
+            <input type="submit" value="Gửi thông tin" class="btn">
+            <input type="reset" value="Xóa thông tin" class="btn">
+       </div>
+    </form>
+</body>
+</html>
