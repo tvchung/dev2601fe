@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Information</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        form{
+            margin: 1rem auto;
+            padding: 1rem;
+            width: 350px;
+            border: 2px solid green;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+        div{
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        input{
+            width: 100%;
+            padding: .75rem;
+            border: 1px solid green;
+            border-radius: 999px;
+        }
+        button{
+            background-color: green;
+            color: yellow;
+            padding: 0.75rem 1.25rem;
+            font-weight: bold;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+           
+        }
+        
+
+    </style>
+</head>
+<body>
+    <form name="frm" action="">
+        <h1>Thực hiện các phép tính toán</h1>
+        <div>
+            <input type="number" name="soA" id="soA" placeholder="Nhập số A" />
+        </div>
+        <div>
+            <input type="number" name="soB" id="soB" placeholder="Nhập số B" />
+        </div>
+        <div>
+            <button onclick="tinhToan('+'); return false;">+</button>
+            <button onclick="tinhToan('-'); return false;">-</button>
+            <button onclick="tinhToan('*'); return false;">*</button>
+            <button onclick="tinhToan('/'); return false;">/</button>
+            <button onclick="tinhToan('%'); return false;">%</button>
+        </div>
+        <input type="number" name="ketQua" placeholder="Kết quả:">
+    </form>
+
+    <script>
+        const tinhToan = (pt)=>{
+            debugger;
+            debugger;
+            // Lấy giá trị trên form
+            let soA = parseFloat(frm.soA.value);
+            let soB = parseFloat(frm.soB.value);
+            
+            // ketqua
+            // let kq = eval(soA+pt+soB);
+            switch (pt){
+                case "+":
+                    kq = soA + soB;
+                    break;
+                case "-":
+                    kq = soA - soB;
+                    break;
+                case "*":
+                    kq = soA * soB;
+                    break;
+                case "/":
+                    kq = soA / soB;
+                    break;
+                case "%":
+                    kq = soA % soB;
+                    break;
+            }
+            frm.ketQua.value=kq;
+           
+        }
+    </script>
+</body>
+</html>
