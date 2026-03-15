@@ -1,0 +1,1 @@
+document.write("<h2> Dữ liệu từ file js </h1>");
