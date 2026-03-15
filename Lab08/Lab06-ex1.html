@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Information</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        form{
+            margin: 1rem auto;
+            padding: 1rem;
+            width: 420px;
+            border: 2px solid green;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+        div{
+            margin: 1rem 0;
+        }
+        input:not([type="checkbox"]){
+            width: 100%;
+            padding: .75rem;
+            border: 1px solid green;
+            border-radius: 999px;
+        }
+        input[type="submit"]{
+            background-color: green;
+            color: yellow;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+        }
+        input[type="submit"]:hover{
+            background-color: yellow;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <form name="frmLogin" action="">
+        <h1>Login Information</h1>
+        <div>
+            <input type="text" name="userName" id="userName" placeholder="Username" />
+        </div>
+        <div>
+            <input type="password" name="pass" id="pass" placeholder="Password" />
+        </div>
+        <div>
+            <input type="checkbox" name="chkRemember" id="chkRemember">
+            <label for="chkRemember">Remember me</label>
+        </div>
+        <input type="submit" value="Login" onclick="login(); return false;">
+    </form>
+
+    <script>
+        const login = ()=>{
+            debugger;
+            // Lấy giá trị trên form
+            let user = frmLogin.userName.value;
+            let pass = frmLogin.pass.value;
+            if(user=="ChungTrinh" && pass == "Chung@123"){
+                alert("Welcome to world of JavaScript");
+                document.writeln("<h2>Welcome to world of JavaScript");
+            }else{
+                alert("Invalid Username or password");
+                document.writeln("<h2>Invalid Username or password");
+            }
+        }
+    </script>
+</body>
+</html>

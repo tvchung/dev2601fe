@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Case (Hiển thị thứ trong tuần)</title>
+</head>
+<body>
+    <h1>Switch Case (Hiển thị thứ trong tuần)</h1>
+
+    <script>
+        var day = new Date() ;
+        console.log(day);
+        
+        switch (day) {
+            case 1:
+                document.write("Thứ hai");
+                break;
+            case 2:
+                document.write("Thứ ba");
+                break;
+            case 3:
+                document.write("Thứ tư");
+                break;
+            default:
+                document.write("Không hợp lệ");
+        }
+    </script>
+
+</body>
+</html>

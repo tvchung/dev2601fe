@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải phương trình bậc 1 a.x+b=0</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        section{
+            margin: 1rem;
+        }
+        h1{
+            color: green;
+        }
+        #ketQua{
+            color: red;
+        }
+        p{
+            margin: 1rem 0;
+        }
+        form div{
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+        }
+        form label {
+            font-weight: bold;
+            width: 80px;
+        }
+        input[type="number"], button{
+            border: 1px solid #999;
+            padding: .5rem;
+        }
+        button{
+            background-color: green;
+            color: yellow;
+            padding: .5rem 1rem;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Giải phương trình bậc nhất</h1>
+        <p>Giải phương trình bậc 1 a.x+b=0</p>
+        <form name="frm" action="">
+            <div>
+                <label for="heSoA">Hệ số a:</label>
+                <input type="number" name="heSoA" id="heSoA">
+            </div>
+            <div>
+                <label for="heSoB">Hệ số b:</label>
+                <input type="number" name="heSoB" id="heSoB">
+            </div>
+            <button onclick="giaiPTBacNhat(); return false;">Giải phương trình</button>
+            <div id="ketQua">
+
+            </div>
+        </form>
+    </section>
+
+    <script>
+         function giaiPTBacNhat(){
+            // lấy giá trị trên form
+            let a = parseFloat(frm.heSoA.value);
+            let b = parseFloat(frm.heSoB.value);
+
+            if (a==0){
+                if(b==0){
+                    document.getElementById("ketQua").innerHTML = 
+                        "<h2> Phương trình vô số nghiệm </h2>";
+                }else{
+                    document.getElementById("ketQua").innerHTML = 
+                        "<h2> Phương trình vô nghiệm </h2>";
+                }
+            }else{
+                let x = -b/a;
+                document.getElementById("ketQua").innerHTML = 
+                        "<h2> Phương trình có  nghiệm " + x + "</h2>";
+
+            }
+        }
+         
+    </script>
+</body>
+</html> 
