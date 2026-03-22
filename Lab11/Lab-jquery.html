@@ -17,8 +17,10 @@
         <div class="row">
             <div class="col-12 col-md-7">
                 <div class="border p-2">
-                    <div class="head-title m-2">
+                    <div class="head-title m-2 d-flex gap-2">
+                        <button id="btnAddNew" class="btn btn-primary">Thêm mới sinh viên</button> 
                         <form action="" class="d-flex gap-2 justify-content-between">
+                            
                             <input type="search" name="keyword" id="keyword" class="form-control"
                                 placeholder="Nhập tên sinh viên cần tìm">
                             <input type="button" value="Tìm kiếm" class="btn btn-primary">
@@ -62,57 +64,57 @@
             </div>
             <div class="col-12 col-md-5 border">
                 <div class="container-fluid p-2">
-                    <form action="" >
-                    <h2 class="my-2">Thông tin sinh viên</h2>
-                    <div class="mb-3 row">
-                        <label for="maSV" class="col-sm-3 col-form-label">Mã sinh viên</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="maSV">
+                    <form action="" id="frmSV">
+                        <h2 class="my-2">Thông tin sinh viên</h2>
+                        <div class="mb-3 row">
+                            <label for="maSV" class="col-sm-3 col-form-label">Mã sinh viên</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="maSV">
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="tenSV" class="col-sm-3 col-form-label">Tên sinh viên</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="tenSV">
+                        <div class="mb-3 row">
+                            <label for="tenSV" class="col-sm-3 col-form-label">Tên sinh viên</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="tenSV">
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="tuoi" class="col-sm-3 col-form-label">Tuổi</label>
-                        <div class="col-sm-9">
-                            <input type="number" class="form-control" id="tuoi">
+                        <div class="mb-3 row">
+                            <label for="tuoi" class="col-sm-3 col-form-label">Tuổi</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="tuoi">
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="gioiTinh" class="col-sm-3 col-form-label">Giới tính</label>
-                        <div class="col-sm-9">
-                            <select name="gTinh" id="gTinh" class="form-control">
-                                <option value="true">Nam</option>
-                                <option value="false">Nữ</option>
-                            </select>
+                        <div class="mb-3 row">
+                            <label for="gioiTinh" class="col-sm-3 col-form-label">Giới tính</label>
+                            <div class="col-sm-9">
+                                <select name="gTinh" id="gTinh" class="form-control">
+                                    <option value="true">Nam</option>
+                                    <option value="false">Nữ</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="ngaySinh" class="col-sm-3 col-form-label">Ngày sinh</label>
-                        <div class="col-sm-9">
-                            <input type="date" class="form-control" id="ngaySinh">
+                        <div class="mb-3 row">
+                            <label for="ngaySinh" class="col-sm-3 col-form-label">Ngày sinh</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="ngaySinh">
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="noiSinh" class="col-sm-3 col-form-label">Nơi sinh</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="noiSinh">
+                        <div class="mb-3 row">
+                            <label for="noiSinh" class="col-sm-3 col-form-label">Nơi sinh</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="noiSinh">
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="diaChi" class="col-sm-3 col-form-label">Địa chỉ</label>
-                        <div class="col-sm-9">
-                            <textarea name="diaChi" id="diaChi" class="form-control"></textarea>
+                        <div class="mb-3 row">
+                            <label for="diaChi" class="col-sm-3 col-form-label">Địa chỉ</label>
+                            <div class="col-sm-9">
+                                <textarea name="diaChi" id="diaChi" class="form-control"></textarea>
+                            </div>
                         </div>
-                    </div>
-                     <div class="mb-3">
-                        <input type="submit" value="Save" class="btn btn-primary px-4">
-                    </div>
-                </form>
+                        <div class="mb-3">
+                            <input type="submit" value="Save" class="btn btn-primary px-4" id="btnSave">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -135,47 +137,181 @@
         $(document).ready(function () {
             // alert("running.....");
             // dữ liệu
-            var students = [
-                    { studentId: "SV001", studentName: "Nguyễn Văn A", age: 20, sex: true, birthDate:
-                    "2002-04-23", birthPlace: "HN", address: "25, Vũ Ngọc Phan" },
-                    { studentId: "SV002", studentName: "Nguyễn Văn B", age: 21, sex: false, birthDate:
-                    "2001-09-09", birthPlace: "ĐN", address: "1, Ngô Quyền" },
-                    { studentId: "SV003", studentName: "Nguyễn Văn C", age: 19, sex: true, birthDate:
-                    "2003-07-07", birthPlace: "HCM", address: "1, Lý Tự Trọng" },
-                    { studentId: "SV004", studentName: "Nguyễn Văn D", age: 29, sex: false, birthDate:
-                    "2005-07-07", birthPlace: "HCM", address: "1, Lý Tự Trọng" },
-                ];
-            
-             
+            var initStudents = [
+                {
+                    studentId: "SV001", studentName: "Nguyễn Văn A", age: 20, sex: true, birthDate:
+                        "2002-04-23", birthPlace: "HN", address: "25, Vũ Ngọc Phan"
+                },
+                {
+                    studentId: "SV002", studentName: "Nguyễn Văn B", age: 21, sex: false, birthDate:
+                        "2001-09-09", birthPlace: "ĐN", address: "1, Ngô Quyền"
+                },
+                {
+                    studentId: "SV003", studentName: "Nguyễn Văn C", age: 19, sex: true, birthDate:
+                        "2003-07-07", birthPlace: "HCM", address: "1, Lý Tự Trọng"
+                },
+                {
+                    studentId: "SV004", studentName: "Nguyễn Văn D", age: 29, sex: false, birthDate:
+                        "2005-07-07", birthPlace: "HCM", address: "1, Lý Tự Trọng"
+                },
+            ];
+            let students = JSON.parse(localStorage.getItem("students")) || initStudents;
+
+            // lưu localStorage
+            localStorage.setItem("students", JSON.stringify(students));
+
+
             // Hàm load data
-            const loadData = ()=>{
+            const loadData = () => {
                 let html = "";
                 $('#listData').html('');
-                
+
                 students.forEach((student, index) => {
                     // xử lý
                     console.log(student);
-                    html +=`
+                    html += `
                         <tr class="">
-                            <td>${index+1}</td>
+                            <td>${index + 1}</td>
                             <td>${student.studentId}</td>
                             <td>${student.studentName}</td>
                             <td>${student.age}</td>
-                            <td>${student.sex?'Nam':'Nữ'}</td>
+                            <td>${student.sex ? 'Nam' : 'Nữ'}</td>
                             <td class="text-center">
-                                <button class="btn btn-info">Xem</button>
-                                <button class="btn btn-warning">Sửa</button>
-                                <button class="btn btn-danger">Xóa</button>
+                                <button id="btnShow"   class="btn btn-info" data-id="${student.studentId}">Xem</button>
+                                <button id="btnEdit"   class="btn btn-warning" data-id="${student.studentId}" >Sửa</button>
+                                <button id="btnDelete" class="btn btn-danger" data-id="${student.studentId}">Xóa</button>
                             </td>
 
                         </tr>
                     `;
-                    
+
                 });
                 $('#listData').html(html);
             }
 
             loadData();
+            // Chức năng thêm mới
+            $("#btnSave").click(function (e) {
+                e.preventDefault();
+                let ma = $("#maSV").val();
+                if (ma == "") {
+                    alert('Chua nhập mã.');
+                    return false;
+                }
+                let student = {
+                    studentId: $("#maSV").val(),
+                    studentName: $("#tenSV").val(),
+                    age: parseInt($("#tuoi").val()),
+                    sex: $("#gTinh").val() === "true",   // chuyển về boolean
+                    birthDate: $("#ngaySinh").val(),
+                    birthPlace: $("#noiSinh").val(),
+                    address: $("#diaChi").val()
+                };
+                console.log(student);
+                console.log(students[students.length - 1].studentId);
+
+                let check = students.find(x => x.studentId == ma);
+
+                if (check != "undefined") {
+                    alert('Trùng mã sinh viên');
+                    return false
+                }
+                // thêm vào mảng
+                students.push(student);
+                // lưu localStorage
+                localStorage.setItem("students", JSON.stringify(students));
+                // Làm mới ds
+                let sttMax = students.length;
+                html = `
+                <tr class="">
+                    <td>${sttMax}</td>
+                    <td>${student.studentId}</td>
+                    <td>${student.studentName}</td>
+                    <td>${student.age}</td>
+                    <td>${student.sex ? 'Nam' : 'Nữ'}</td>
+                    <td class="text-center">
+                        <button id="btnShow"   class="btn btn-info">Xem</button>
+                        <button id="btnEdit"   class="btn btn-warning">Sửa</button>
+                        <button id="btnDelete" class="btn btn-danger">Xóa</button>
+                    </td>
+
+                </tr>
+            `;
+                $('#listData').append(html);
+                // loadData();
+                console.log("Danh sách sau khi thêm:", students);
+            });
+
+            const actionShowEdit = (student) => {
+                $("#maSV").val(student.studentId);
+                $("#tenSV").val(student.studentName);
+                $("#tuoi").val(student.age);
+                $("#gTinh").val(student.sex.toString());
+                $("#ngaySinh").val(student.birthDate);
+                $("#noiSinh").val(student.birthPlace);
+                $("#diaChi").val(student.address);
+            }
+
+            // Chức năng xem
+            $(document).on("click", "#listData tr > td > button#btnShow", function (e) {
+                debugger;
+                e.preventDefault();
+               
+
+                $("#frmSV input, #frmSV textarea").prop("readonly", true);
+                $("#frmSV select").prop("disabled", true);
+
+                let maSV = $(this).attr("data-id");
+                let student = students.find(x => x.studentId == maSV);
+
+                if (student) {
+                    actionShowEdit(student);
+                } else {
+                    alert("Không tìm thấy sinh viên!");
+                }
+                $("#btnSave").hide();
+            });
+            //Chức năng sửa
+             $(document).on("click", "#listData tr > td > button#btnEdit", function (e) {
+                debugger;
+                e.preventDefault();
+                
+
+                $("#frmSV input, #frmSV textarea").prop("readonly", false);
+                $("#frmSV select").prop("disabled", false);
+
+                let maSV = $(this).attr("data-id");
+                let student = students.find(x => x.studentId == maSV);
+
+                if (student) {
+                    actionShowEdit(student);
+
+                    // cập nhật mảng ở đây
+                } else {
+                    alert("Không tìm thấy sinh viên!");
+                }
+                $("#btnSave").show();
+            });
+
+            // Chức năng thêm mới
+             $(document).on("click", "#btnAddNew", function (e) {
+                debugger;
+                e.preventDefault();
+                
+
+                $("#frmSV input, #frmSV textarea").prop("readonly", false);
+                $("#frmSV select").prop("disabled", false);
+                
+                $("#maSV").val('');
+                $("#tenSV").val('');
+                $("#tuoi").val(0);
+                $("#gTinh").val('true');
+                $("#ngaySinh").val('');
+                $("#noiSinh").val('');
+                $("#diaChi").val('');
+
+                $("#btnSave").show();
+            });
         });
     </script>
 </body>
