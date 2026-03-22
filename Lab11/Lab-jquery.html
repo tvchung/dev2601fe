@@ -287,6 +287,7 @@
                     actionShowEdit(student);
 
                     // cập nhật mảng ở đây
+
                 } else {
                     alert("Không tìm thấy sinh viên!");
                 }
@@ -311,6 +312,23 @@
                 $("#diaChi").val('');
 
                 $("#btnSave").show();
+            });
+
+            $(document).on("click", "#listData tr > td > button#btnDelete", function (e) {
+                debugger;
+                e.preventDefault();
+                
+
+                $("#frmSV input, #frmSV textarea").prop("readonly", false);
+                $("#frmSV select").prop("disabled", false);
+
+                let maSV = $(this).attr("data-id");
+                students = students.filter(x => x.studentId != maSV);
+                // lưu localStorage
+                localStorage.setItem("students", JSON.stringify(students));
+
+                 $(this).closest("tr").remove();
+
             });
         });
     </script>
